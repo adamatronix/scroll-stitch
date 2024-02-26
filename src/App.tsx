@@ -3,18 +3,25 @@ import styled from 'styled-components';
 import './App.css'
 
 const Scene = styled.div`
-   perspective: 400px;
+   perspective: 800px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100svh;
 `
 const AllScrolls = styled.div`
   position: relative;
+  transform-origin: center;
   transform-style: preserve-3d;
   transition: transform .2s ease; 
+  transform: scale(0.5);
 `
 
 const ScrollArea = styled.div`
   position: relative;
-  width: 600px;
-  height: 500px;
+  width: 1200px;
+  height: 1000px;
   color: white;
   text-align: left;
   overflow: hidden;
@@ -30,8 +37,9 @@ const ScrollArea2 = styled(ScrollArea)`
 const ScrollInner = styled.div`
   position: absolute;
   width: 100%;
-  height: 1000px;
+  height: 2000px;
   overflow-y: scroll;
+  font-size: 32px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -39,7 +47,7 @@ const ScrollInner = styled.div`
 `
 
 const ScrollInner2 = styled(ScrollInner)`
-  top: -500px;
+  top: -1000px;
 `
 
 function App() {
@@ -65,7 +73,7 @@ function App() {
 
     console.log(x);
     if(allRef.current) {
-      allRef.current.style.transform = `rotateY(${x/10}deg) rotateX(${y/10}deg)`;
+      allRef.current.style.transform = `rotateY(${x/10}deg) rotateX(${y/10}deg) scale(0.5)`;
     }
   },[])
 
